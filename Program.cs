@@ -8,7 +8,7 @@
 //int[] tempArr = Methods.MakePositive(nums);
 //Console.WriteLine(string.Join(",",nums));
 
-string word = "    Garage Academy   ";
+string word = "    Garage Academy";
 Console.WriteLine(Methods.ClearSpaces(word));
 
 
@@ -39,24 +39,24 @@ class Methods
         string tempWord = "";
         int right = 0;
         int left = 0;
-        for (int i = word.Length-1; i>=0; i--)
+        for (int i = 0; i<word.Length; i++)
         {
-            if (word[i] == ' ' && i != 0)
+            if (word[i] == ' ')
             {
-                right++;
-                if (word[i-1] != ' ') break;
+                left++;
+                if (word[i+1] != ' ') break;
             }
             else
             {
                 break;
             }
         }
-        for (int i = 0; i<word.Length; i++)
+        for (int i = word.Length-1; i>=left; i--)
         {
-            if (word[i] == ' ' && i != word.Length-1)
+            if (word[i] == ' ')
             {
-                left++;
-                if (word[i+1] != ' ') break;
+                right++;
+                if (word[i-1] != ' ') break;
             }
             else
             {
