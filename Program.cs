@@ -1,15 +1,15 @@
 ﻿
-int[] nums = { 1, 2, 3, -5, -8 };
+//int[] nums = { 1, 2, 3, -5, -8 };
 
 //Console.WriteLine(Methods.Factorial(5));
 
-Methods.Fibonacci(5);
+//Methods.Fibonacci(5);
 
 //int[] tempArr = Methods.MakePositive(nums);
 //Console.WriteLine(string.Join(",",nums));
 
-//string word = " Garage Academy   ";
-//Console.WriteLine(Methods.ClearSpaces(word));
+string word = "    Garage Academy   ";
+Console.WriteLine(Methods.ClearSpaces(word));
 
 
 
@@ -46,13 +46,21 @@ class Methods
                 right++;
                 if (word[i-1] != ' ') break;
             }
+            else
+            {
+                break;
+            }
         }
         for (int i = 0; i<word.Length; i++)
         {
-            if (word[i] == ' ' && i != 0)
+            if (word[i] == ' ' && i != word.Length-1)
             {
                 left++;
-                if (word[i-1] != ' ') break;
+                if (word[i+1] != ' ') break;
+            }
+            else
+            {
+                break;
             }
         }
         for (int i = left; i < word.Length-right; i++)
@@ -82,8 +90,7 @@ class Methods
     }
 
     // TASK-5
-    // a b c
-    // 0 1 1
+
     public static void Fibonacci(int num)
     {
         int a = 0;
@@ -95,10 +102,7 @@ class Methods
             int c = a+b;
             a=b;
             b=c;
-            
             Console.WriteLine(c);
         }
     }
-
-
 }
